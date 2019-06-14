@@ -16,50 +16,58 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Hiển Thị Danh Sách Khách Hàng</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <h1>Danh Sách Khách Hàng</h1>
+        <div class="container">
+            <h1>Danh Sách Khách Hàng</h1>
 
-        <table class="table">
-            <tr>
-                <td width="200px">Họ tên
-                </td>
-                <td width="200px">
-                    Ngày sinh
-                </td>
-                <td width="200px">
-                    Địa chỉ
-                </td>
-                <td width="200px">
-                    image
-                </td>
-            </tr>
-            <%
-                  List<Customer> lists = CustomerDB.queryCustomer();
-            %>
-            <c:forEach items="${customer}" var="cus">
-                <tr>
-                    <td>
-                        ${cus.name}
-                    </td>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td width="200px">Họ tên
+                        </td>
+                        <td width="200px">
+                            Ngày sinh
+                        </td>
+                        <td width="200px">
+                            Địa chỉ
+                        </td>
+                        <td width="200px">
+                            image
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%
+                        List<Customer> lists = CustomerDB.queryCustomer();
+                    %>
+                    <c:forEach items="${customer}" var="cus">
+                        <tr>
+                            <td>
+                                ${cus.name}
+                            </td>
 
-                    <td>
-                <fmt:formatDate type="date" value="${cus.birthday}" />
-            </td>
+                            <td>
+                                <fmt:formatDate type="date" value="${cus.birthday}" />
+                            </td>
 
-            <td>
-                ${cus.address}
-            </td>
-            <td>
-                <img class="img-responsive" src="${cus.image}">
-               
-            </td>
-        </tr>
+                            <td>
+                                ${cus.address}
+                            </td>
+                            <td>
+                                <img class="img-responsive" src="${cus.image}">
 
-    </c:forEach>
-</table>
-           
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-</body>
+                            </td>
+                        </tr>
+
+                    </c:forEach>
+                </tbody>
+
+            </table>
+        </div>
+
+    </body>
 </html>
