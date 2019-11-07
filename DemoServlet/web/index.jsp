@@ -13,7 +13,7 @@
 
   <body>
   <h3>This is my Index page</h3>
-  <form action="/hello" method="get">
+  <form action="/hello" method="post">
     <label>Input your name</label>
     <input type="text" name="name">
     <input type="submit" value="Submit">
